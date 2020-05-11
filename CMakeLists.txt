@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(driving_msgs)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 find_package(catkin REQUIRED COMPONENTS
   message_generation
@@ -20,6 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
    DetectedObjectArray.msg
  )
 
+
 ## Generate added messages and services with any dependencies listed here
  generate_messages(
    DEPENDENCIES
@@ -27,11 +28,10 @@ find_package(catkin REQUIRED COMPONENTS
    nav_msgs
    sensor_msgs
    geometry_msgs
+   roscpp
  )
 
 
 catkin_package(
-  LIBRARIES driving_msgs
-)
-
+  CATKIN_DEPENDS roscpp std_msgs message_runtime message_generation)
 
